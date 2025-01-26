@@ -1,3 +1,16 @@
+[test-task-slider](https://test-task-slider-zeta.vercel.app/)
+
+## [x] Кнопки слайдера кликабельные и переключают между слайдерами
+## [x] Кнопки слайдера имеют анимацию по макету в фигме
+## [x] Слайдер должен иметь плавные анимации
+## [x] Слайдер должен быть адаптивен на промежуточных разрешениях между теми, что предоставлены в макете
+## [x] Задание должно быть реализовано со стеком:
+  ## - Next JS 15 (App Router)
+  ## - TailwindCSS
+  ##  - Typescript
+## [x] Слайдер должен пререндериться на сервере. 
+## [x] При первичном запросе проект должен отдавать html с семантической версткой слайдера.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
