@@ -13,6 +13,8 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        main_color_text: "var(--main_color_text)",
+        bg_slider_card: "var(--bg_slider_card)"
       },
     },
   },

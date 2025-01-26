@@ -1,5 +1,3 @@
-import React from "react";
-
 export interface ISlide {
     id: number
     logo: React.ReactNode
@@ -14,7 +12,7 @@ export interface IPagination {
 
 }
 
-export const sliders: ISlide[] = [
+export const slides: ISlide[] = [
     {
         id: 1,
         title: 'Анализ текущего состояния карьеры',

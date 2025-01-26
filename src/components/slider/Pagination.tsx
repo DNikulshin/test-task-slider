@@ -1,4 +1,4 @@
-import { ISlide, pagination } from '@/shared/data-slider'
+import { pagination } from '@/shared/data-slider'
 import React from 'react'
 
 interface Props {
@@ -10,7 +10,6 @@ interface Props {
 
 export const Pagination = ({ className, totalSlides, setCurrentSlideIndex, currentSlideIndex }: Props) => {
 
-    console.log(setCurrentSlideIndex, 'setCurrentSlideIndex', currentSlideIndex)
     return (
         <div
             className={className}
@@ -19,6 +18,7 @@ export const Pagination = ({ className, totalSlides, setCurrentSlideIndex, curre
                 <span
                     key={index}
                     onClick={() => setCurrentSlideIndex(index)}
+                    className='cursor-pointer'
                 >
                     {currentSlideIndex === index
                         ? pagination.active
