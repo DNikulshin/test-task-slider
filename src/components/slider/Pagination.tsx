@@ -11,7 +11,8 @@ interface Props {
 export const Pagination = ({
    className,
    totalSlides,
-     currentSlideIndex, setCurrentSlideIndex
+   currentSlideIndex,
+   setCurrentSlideIndex
 }: Props) => {
 
     return (
