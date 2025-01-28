@@ -8,7 +8,11 @@ interface Props {
     currentSlideIndex: number
 }
 
-export const Pagination = ({ className, totalSlides, setCurrentSlideIndex, currentSlideIndex }: Props) => {
+export const Pagination = ({
+   className,
+   totalSlides,
+     currentSlideIndex, setCurrentSlideIndex
+}: Props) => {
 
     return (
         <div
@@ -27,7 +31,5 @@ export const Pagination = ({ className, totalSlides, setCurrentSlideIndex, curre
                 </span>
             ))}
         </div>
-
-
     )
 }

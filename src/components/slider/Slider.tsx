@@ -1,14 +1,33 @@
+import React from "react";
 import { ISlide } from "@/shared/data-slider";
+import {touchSlide} from '@/shared/hooks/touch-slide';
 
 interface Props {
     slides: ISlide[];
     currentSlideIndex: number;
+    setCurrentSlideIndex: (index: number) => void
+
 }
 
-export const Slider = ({ currentSlideIndex, slides }: Props) => {
+export const Slider = (
+    {
+        slides,
+        currentSlideIndex,
+        setCurrentSlideIndex
+    }: Props) => {
+
+    const {
+        handleTouchStart,
+        handleTouchMove,
+        handleTouchEnd
+    } = touchSlide(currentSlideIndex,  setCurrentSlideIndex)
 
     return (
-        <div className="w-full flex gap-4 overflow-hidden">
+        <div className="w-full flex gap-4 overflow-hidden"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+        >
             <div
                 className="flex gap-4 transition-transform duration-500 ease-in-out"
                 style={{

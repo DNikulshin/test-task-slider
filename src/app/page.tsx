@@ -1,14 +1,12 @@
 'use client'
 
-import { useState } from "react";
+import React, { useState } from "react";
 import { Header } from "@/components/Header";
 import { Slider } from "@/components/slider/Slider";
 import { Pagination } from "@/components/slider/Pagination";
 import { slides } from "@/shared/data-slider";
 
-
 export default function Home() {
-
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
 
   return (
@@ -23,8 +21,8 @@ export default function Home() {
               <Pagination
                 className="flex gap-2 transition-all duration-500 ease-in-out"
                 totalSlides={slides.length}
-                currentSlideIndex={currentSlideIndex}
                 setCurrentSlideIndex={setCurrentSlideIndex}
+                currentSlideIndex={currentSlideIndex}
               />
             </div>
           </div>
@@ -33,6 +31,7 @@ export default function Home() {
         <section className="px-4 py-2">
           <Slider
             currentSlideIndex={currentSlideIndex}
+            setCurrentSlideIndex={setCurrentSlideIndex}
             slides={slides}
           />
         </section>
