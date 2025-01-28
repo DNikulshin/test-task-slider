@@ -10,7 +10,7 @@ export default function Home() {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
 
   return (
-    <div className="w-full h-screen">
+    <div className="w-full h-screen overflow-x-hidden relative">
       <Header />
       <main>
         <section className="text-main_color_text mx-4 mb-2 md:border-b-2">

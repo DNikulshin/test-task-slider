@@ -18,20 +18,12 @@ export const Slider = (
     const startX = useRef(0);
     const endX = useRef(0);
 
-    const handleTouchStart = (e: React.TouchEvent) => {
-        startX.current = e.touches[0].clientX;
-        console.log(startX)
-    };
-
-    const handleTouchMove = (e: React.TouchEvent) => {
-        endX.current = e.touches[0].clientX;
-
-        console.log(endX)
-    };
+    const handleTouchStart = (e: React.TouchEvent) => startX.current = e.touches[0].clientX;
+    const handleTouchMove = (e: React.TouchEvent) => endX.current = e.touches[0].clientX;
 
     const handleTouchEnd = () => {
         const distance = startX.current - endX.current;
-        console.log(distance)
+
         if (distance > 50) {
             // Swipe left
             setCurrentSlideIndex((prevIndex: number) => Math.min(prevIndex + 1, slides.length - 1));
@@ -41,7 +33,7 @@ export const Slider = (
         }
     }
     return (
-        <div className="w-full flex gap-4 overflow-hidden"
+        <div className="w-full h-screen flex gap-4 overflow-hidden"
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
