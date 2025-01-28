@@ -1,11 +1,10 @@
-import React from "react";
-import { ISlide } from "@/shared/data-slider";
-import {touchSlide} from '@/shared/hooks/touch-slide';
+import React, {useRef} from "react";
+import {ISlide} from "@/shared/data-slider";
 
 interface Props {
     slides: ISlide[];
     currentSlideIndex: number;
-    setCurrentSlideIndex: (index: number) => void
+    setCurrentSlideIndex: (index: (prevIndex: number) => number) => void
 
 }
 
@@ -16,12 +15,31 @@ export const Slider = (
         setCurrentSlideIndex
     }: Props) => {
 
-    const {
-        handleTouchStart,
-        handleTouchMove,
-        handleTouchEnd
-    } = touchSlide(currentSlideIndex,  setCurrentSlideIndex)
+    const startX = useRef(0);
+    const endX = useRef(0);
 
+    const handleTouchStart = (e: React.TouchEvent) => {
+        startX.current = e.touches[0].clientX;
+        console.log(startX)
+    };
+
+    const handleTouchMove = (e: React.TouchEvent) => {
+        endX.current = e.touches[0].clientX;
+
+        console.log(endX)
+    };
+
+    const handleTouchEnd = () => {
+        const distance = startX.current - endX.current;
+        console.log(distance)
+        if (distance > 50) {
+            // Swipe left
+            setCurrentSlideIndex((prevIndex: number) => Math.min(prevIndex + 1, slides.length - 1));
+        } else if (distance < -50) {
+            // Swipe right
+            setCurrentSlideIndex((prevIndex: number) => Math.max(prevIndex - 1, 0));
+        }
+    }
     return (
         <div className="w-full flex gap-4 overflow-hidden"
         onTouchStart={handleTouchStart}

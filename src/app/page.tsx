@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import { Header } from "@/components/Header";
 import { Slider } from "@/components/slider/Slider";
 import { Pagination } from "@/components/slider/Pagination";
@@ -8,6 +8,11 @@ import { slides } from "@/shared/data-slider";
 
 export default function Home() {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+
+
+  useEffect(() => {
+    setCurrentSlideIndex(currentSlideIndex)
+  }, [currentSlideIndex]);
 
   return (
     <div className="w-full h-screen">
